@@ -37,6 +37,7 @@ var Application = function() {
 		this.refresh(function(success){	
 			if(success) {
 				$("#config").hide();
+				$("#app").show();
 			} else {
 				alert("Kunne ikke vise vær for dette stedet");
 				localStorage.removeItem('options');
@@ -46,6 +47,7 @@ var Application = function() {
 	}
 
 	this.showConfig = function() {
+		$("#app").hide();
 		$("#config").empty();
 		$.tmpl("config", app.options).appendTo("#config");
 		$("#config").show();
@@ -116,6 +118,7 @@ $(function(){
 	});
 
 	$("#config .close").live('click', function(e) {
+		app.showWeather();
 		e.preventDefault();
 	});
 
