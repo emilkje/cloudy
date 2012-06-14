@@ -1,5 +1,5 @@
 var Application = function() {
-	this.options = $.jStorage.get("options");
+	this.options = {};
 	// this.options.province = "Hedmark";
 	// this.options.city = "Hamar";
 
@@ -33,11 +33,14 @@ var Application = function() {
 	}
 
 	this.showWeather = function() {	
+		me = this;
 		this.refresh(function(success){	
 			if(success) {
 				$("#config").hide();
 			} else {
-				alert("Fant ikke vær for dette stedet");
+				alert("Kunne ikke vise vær for dette stedet");
+				localStorage.removeItem('options');
+				me.showConfig();
 			}
 		});
 	}
@@ -50,7 +53,7 @@ var Application = function() {
 
 	this.setOptions = function(obj) {
 		this.options = obj;
-		$.jStorage.set("options", obj);
+		localStorage.options = $.toJSON(obj);
 	}
 
 	this.init = function(callback) {
@@ -80,7 +83,8 @@ $(function(){
 	function app_ready() {
 
 		//The app is ready.
-		if(app.options) {
+		if(localStorage.options) {
+			app.options = $.parseJSON(localStorage.options);
 			app.showWeather();
 		} else {
 			app.showConfig();
@@ -93,7 +97,6 @@ $(function(){
 			city: $("#city", this).val(),
 			province : $("#province", this).val()
 		}
-		console.log(options);
 		app.setOptions(options);
 		app.showWeather();
 		e.preventDefault();	

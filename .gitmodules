@@ -4,3 +4,6 @@
 [submodule "jstorage"]
 	path = jstorage
 	url = https://github.com/andris9/jStorage.git
+[submodule "skel"]
+	path = skel
+	url = https://github.com/dhgamache/Skeleton.git
