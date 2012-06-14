@@ -1,1 +1,161 @@
-@import url('bootstrap/docs/assets/css/bootstrap-responsive.css');
+
+/* Import custom font */
+@import url('font/stylesheet.css');
+
+body {
+	padding: 30px;
+	color: #fff;
+	font-family: "AllerRegular", "Helvetica", Arial, sans-serif;
+	background: #f9f9f9;
+}
+
+#wrapper {
+	/* width: 360px; */
+	/* margin: 0 auto; */
+	position: relative;
+}
+
+.first {
+	height: 370px;
+	background: #e0a4d6; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #e0a4d6 0%, #df90c7 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e0a4d6), color-stop(100%,#df90c7)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #e0a4d6 0%,#df90c7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, #e0a4d6 0%,#df90c7 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, #e0a4d6 0%,#df90c7 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover, #e0a4d6 0%,#df90c7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0a4d6', endColorstr='#df90c7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	margin-bottom: 20px;
+	position: relative;
+}
+.first .inner {
+	padding: 25px 30px 70px;
+}
+.first .temp {
+	font-size: 60px;
+	line-height: 60px;
+	margin: 0;
+	padding: 0;
+}
+.temp span {
+	font-size: 40px;
+}
+.first .day,
+.first .datetime{
+	font-family: "AllerLight";
+	font-size: 18px;
+	letter-spacing: 1px;
+	margin: 0 0 0 10px;
+	margin: 0 0 0 10px;
+}
+
+.first .datetime {
+	font-size: 11px;
+}
+
+.first .left {float: left;}
+.first .right {float: right;}
+
+.first .info {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	font-family: "AllerLight";
+	height: 50px;
+	width: 200px;
+}
+.first .info .city {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 20px;
+	text-align: right;
+}
+.first .info .country {
+	position: absolute;
+	font-size: 11px;
+	top: 23px;
+	right: 35px;
+	text-align: right;
+}
+
+.first .info .config {
+	position: absolute;
+	top: 27px;
+	right: 0px;
+	height: 29px;
+	width: 29px;
+}
+
+.first .info .config a {
+	display: block;
+	width: 29px;
+	height: 29px;
+	background: transparent url('../img/config.png') top center no-repeat;
+	text-indent: -9000px;
+}
+
+.first .image {
+	margin: 0 auto;
+	width: 210px;
+}
+
+.first .refresh {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 25px;
+	height: 27px;
+}
+
+.first .refresh a {
+	display: block;
+	text-indent: -9000px;
+	width: 25px;
+	height: 27px;
+	background: transparent url('../img/refresh.png') top center no-repeat;
+}
+
+.second {
+	background: #cfe6ee;
+}
+.third {
+	background: #b3d1f6;
+}
+.fourth {
+	background: #b3d1f6;
+}
+
+.section {
+	font-family: "AllerLight";
+	margin-bottom: 20px;
+	height: 50px;
+}
+
+.section .temp {
+	font-size: 32px;
+	float: left;
+	margin: 5px 0 0 10px;
+}
+.section .datetime {
+	font-size: 20px;
+	float: right;
+	margin: 10px 10px 0 0;
+}
+.section .icon {
+	width: 70px;
+	margin: 0 auto;
+}
+
+#config {
+	color: #333;
+	background: #fff;
+	top: 0;
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+#config_inner {
+	padding: 20px;
+}

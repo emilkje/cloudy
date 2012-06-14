@@ -18,6 +18,23 @@ if(isset($place)) {
 	$xml = "http://www.yr.no/sted/Norge/$province/$city/$city/varsel.xml";
 }
 
-header("Content-Type: application/json");
+// header("Content-Type: application/json");
 $dom = simplexml_load_string(file_get_contents($xml));
-echo json_encode($dom);
+
+$days = array(
+	'Mon' => 'Mandag',
+	'Tue' => 'Tirsdag',
+	'Wed' => 'Onsdag',
+	'Thu' => 'Torsdag',
+	'Fri' => 'Fredag',
+	'Sat' => 'Lørdag',
+	'Sun' => 'Søndag'
+);
+$i = 0;
+foreach($dom->forecast->tabular->time as $item) {
+	$dom->forecast->tabular->time[$i]->day = $days[Date("D", strtotime($item->attributes()->from))];
+	$dom->forecast->tabular->time[$i]->date = Date("d/m/y", strtotime($item->attributes()->from));
+	$dom->forecast->tabular->time[$i]->time = Date("H:i", strtotime($item->attributes()->from));
+	$i++;
+}
+echo str_replace("@attributes", "attr", json_encode($dom));

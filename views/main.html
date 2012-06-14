@@ -1,10 +1,22 @@
-${country}
-${day}
-${temp}
-${city}
-${cloud_icon}
-${condition}
 <div class="first">
-<div class="temp">17°</div>
-<div class="day">Tirsdag</div>
+	<div class="inner">
+		<div class="tmpday">
+			<div class="temp">${temp}°<span>C</span></div>
+			<div class="day">${day} </div>
+			<div class="datetime">${date} <br />${time}</div>
+		</div>
+		<div class="info">
+			<div class="city">${city}</div>
+			<div class="country">${province}</div>
+			<div class="config"><a href="#config">Settings</a>
+		</div>
+	</div>
+	<div class="image">
+		<img src="img/large/${icon}.png" alt="${condition}" />
+	</div>
+
+	<div class="refresh">
+		<a href="#refresh">Oppdater</a>
+	</div>
 </div>
+<div style="clear:both;"></div>
