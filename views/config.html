@@ -1,8 +1,10 @@
 <div id="config_inner">
-<h1>Innstillinger</h1>
-<form action="#" method="get">
-	Fylke: <input type="text" name="province" value="${province}" id="province" /><br />
-	By: <input type="text" name="city" value="${city}" id="city" /> <br />
-	<input type="submit" value="Lagre" />
-</div>
+	<h1>Innstillinger</h1>
+	<form action="#" method="get">
+		<label for="search">Søk etter sted:</label>
+		<input type="text" name="query" id="search" value="${city}" />
+		<input type="submit" value="Søk" />
+	</form>
+
+	<div id="search_results"></div>
 </div>

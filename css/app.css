@@ -1,6 +1,7 @@
 
 /* Import custom font */
 @import url('font/stylesheet.css');
+@import url('animations.css');
 
 body {
 	color: #fff;
@@ -10,7 +11,6 @@ body {
 }
 
 .first {
-	/* height: 370px; */
 	background: #e0a4d6; /* Old browsers */
 	background: -moz-radial-gradient(center, ellipse cover, #e0a4d6 0%, #df90c7 100%); /* FF3.6+ */
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e0a4d6), color-stop(100%,#df90c7)); /* Chrome,Safari4+ */
@@ -23,11 +23,10 @@ body {
 	position: relative;
 }
 .first .inner {
-	padding: 25px 30px 70px;
+	padding: 10px 0;
 }
-.first .tmpday {
-	width: 280px;
-	margin: 0 auto;
+.first .tmpday div {
+	padding: 0 0 0 20px;
 }
 .first .temp {
 	font-size: 60px;
@@ -105,6 +104,14 @@ body {
 	width: 25px;
 	height: 27px;
 }
+.first .refresh a {
+}
+.first .refresh a.active {
+	-webkit-animation: spin 1s infinite;
+	-moz-animation: spin 1s infinite;
+	-ms-animation: spin 1s infinite;
+	-o-animation: spin 1s infinite;
+}
 
 .first .refresh a {
 	display: block;
@@ -121,7 +128,7 @@ body {
 	background: #b3d1f6;
 }
 .fourth {
-	background: #b3d1f6;
+	background: #6092d7;
 }
 
 .section {
@@ -138,8 +145,14 @@ body {
 }
 .section .datetime {
 	font-size: 20px;
+	line-height: 18px;
 	float: right;
-	padding: 12px 10px 0 0;
+	padding: 10px 10px 0 0;
+	text-align: right;
+}
+.section .datetime span {
+	display: block;
+	font-size: 11px;
 }
 .section .icon {
 	width: 70px;

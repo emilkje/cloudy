@@ -1,12 +1,11 @@
 var Application = function() {
 	this.options = {};
-	// this.options.province = "Hedmark";
-	// this.options.city = "Hamar";
 
 	this.refresh = function(cb) {
 		me = this;
 		api.getData(this.options, function(res){
-			$("#app").empty();
+			$("#app .first .content").empty();
+			$("#app .small").empty();
 			var items = Array();
 			if(res) {
 				$.each(res.forecast.tabular.time, function(index, forecast){
@@ -18,15 +17,16 @@ var Application = function() {
 						city: res.location.name,
 						icon : forecast.symbol.attr.number,
 						condition: forecast.symbol.attr.name,
-						province: me.options.province
+						country: res.location.country
 					}
 					items.push(obj);
 				});
-				$.tmpl("main", items.shift()).appendTo("#app");
-				$.tmpl("alt", items.shift()).appendTo("#app").addClass("second");
-				$.tmpl("alt", items.shift()).appendTo("#app").addClass("third");
-				$.tmpl("alt", items.shift()).appendTo("#app").addClass("fourth");
+				$.tmpl("main", items.shift()).appendTo("#app .first .content");
+				$.tmpl("alt", items.shift()).appendTo("#app .small").addClass("second");
+				$.tmpl("alt", items.shift()).appendTo("#app .small").addClass("third");
+				$.tmpl("alt", items.shift()).appendTo("#app .small").addClass("fourth");
 			}
+			// $(".refresh a").removeClass("active");
 			if(cb instanceof Function)
 				cb(res);
 		});
@@ -71,6 +71,23 @@ var Application = function() {
 			});
 		});
 	}
+
+	this.search = function(query) {
+		me = this;
+		api.search(query, function(data) {
+			var ul = $('<ul></ul>');
+			$.each(data.result, function(index, item){
+				var link = $('<a href="#activate" data-url="' + item[1] + '">' + item[2] + '</a>');
+				ul.append($('<li></li>').append(link));
+			});
+			$("#search_results").html(ul);
+			$("#search_results ul li a").live('click', function(e){
+				me.setOptions({url: $(this).data('url')});
+				me.showWeather();
+				e.preventDefault();
+			});
+		});
+	}
 }
 
 app = new Application();
@@ -93,14 +110,15 @@ $(function(){
 	}
 
 	$('#config form').live('submit', function(e){
-		options = {
-			city: $("#city", this).val(),
-			province : $("#province", this).val()
-		}
-		app.setOptions(options);
-		app.showWeather();
+		options = {query : $("#search", this).val()};
+		app.search(options);
 		e.preventDefault();	
 	});
+
+	$("#config .close").live('click', function(e) {
+		e.preventDefault();
+	});
+
 
 	$(".config a").live('click', function(e) {
 		app.showConfig();
@@ -108,7 +126,10 @@ $(function(){
 	});
 
 	$(".refresh a").live('click', function(e) {
-		app.refresh();
+		var btn = $(this), timer = true;
+		btn.addClass("active");
+		setTimeout(function(){timer = false; btn.removeClass("active");}, 1000);
+		app.refresh(function(){if(!timer){btn.removeClass("active");}});
 		e.preventDefault();
 	});
 
