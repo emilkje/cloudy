@@ -3,8 +3,11 @@
 	<form action="#" method="get">
 		<label for="search">Søk etter sted:</label>
 		<input type="text" name="query" id="search" value="${city}" />
-		<input type="submit" value="Søk" />
-		<a href="#close" class="close">lukk</a>
+		<div class="btn-group">
+			<input type="submit" value="Søk" id="submit" class="btn" />
+			<a href="#close" class="close btn danger">lukk</a>
+		</div>
+		<div style="clear:both;"></div>
 	</form>
 
 	<div id="search_results"></div>

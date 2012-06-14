@@ -9,6 +9,12 @@ body {
 	background: #fff;
 }
 
+#topcontainer {
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+
 .first {
 	background: #e0a4d6; /* Old browsers */
 	background: -moz-radial-gradient(center, ellipse cover, #e0a4d6 0%, #df90c7 100%); /* FF3.6+ */
@@ -160,18 +166,63 @@ body {
 }
 
 #config {
-	font-family: "AllerRegular";
-	/* background: #88ccaa; */
+	background: #ffffcc;
 	color: #333;
 }
 #config h1 {
-	font-family: "AllerRegular";
 	color: #333;
 }
 #config_inner {
 	padding: 20px;
 }
-#topcontainer {
-	width: 300px;
-	margin: 0 auto;
+#config input,
+#config label {
+	display: block;
+}
+#config label {
+	color: #333;
+	margin-bottom: 2px;
+}
+#config input#search {
+	padding: 5px;
+	height: 16px;
+	width: 100%;
+	margin-right: 3px;
+}
+.btn {
+	font-weight: normal;
+	text-decoration: none;
+	font-size: 12px;
+	border: none;
+	background: #66aa77;
+	color: #fff;
+	padding: 5px;
+	border-radius: 2px;
+	cursor: pointer;
+	margin: 0;
+}
+a.btn {padding: 5px 5px 6px 5px;}
+.btn.danger {
+	background: #aa6666;
+}
+.btn-group .btn {
+	float: left;
+	margin-right: 5px;
+}
+.btn-group {overflow: hidden; margin: 5px 0 0}
+
+#config ul {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 0 0;
+}
+#config ul li {
+	border-bottom: 1px solid #f0f0f0;
+	padding: 10px 0;
+	border-radius: 2px;
+}
+#config ul li a {
+	text-decoration: none;
+	color: #225599;
+	display: block;
 }
