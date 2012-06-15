@@ -34,8 +34,8 @@ body {
 	padding: 0 0 0 20px;
 }
 .first .temp {
-	font-size: 60px;
-	line-height: 60px;
+	font-size: 50px;
+	line-height: 50px;
 	margin: 0;
 	padding: 0;
 }
@@ -138,8 +138,8 @@ body {
 
 .section {
 	font-family: "AllerLight";
-	margin-bottom: 20px;
-	height: 50px;
+	margin-bottom: 10px;
+	height: 45px;
 	overflow: hidden;
 }
 
@@ -161,8 +161,11 @@ body {
 	font-size: 11px;
 }
 .section .icon {
-	width: 70px;
-	margin: 0 auto;
+	width: 50px;
+	margin: 5px auto 0 auto;
+}
+.section .icon img {
+	width: 50px;
 }
 
 #config {
@@ -217,7 +220,8 @@ a.btn {padding: 5px 5px 6px 5px;}
 	margin: 10px 0 0 0;
 }
 #config ul li {
-	border-bottom: 1px solid #f0f0f0;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	border-top: 1px solid rgba(255,255,255,.5);
 	padding: 10px 0;
 	border-radius: 2px;
 }

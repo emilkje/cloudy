@@ -101,18 +101,23 @@ $(function(){
 
 	function app_ready() {
 
-		//The app is ready.
+		// The app is ready.
 		if(localStorage.options) {
 			app.options = $.parseJSON(localStorage.options);
 			app.showWeather();
 		} else {
-			app.showConfig();
+			if(localStorage) {
+				app.showConfig();
+			} else {
+				app.options = {url: "/sted/Norge/Oppland/Gjøvik/Gjøvik/"};	
+				app.showWather();
+			}
 		}
 
 	}
 
 	$('#config form').live('submit', function(e){
-		options = {query : $("#search", this).val()};
+		options = {query : $("#search").val()};
 		app.search(options);
 		e.preventDefault();	
 	});
@@ -125,6 +130,10 @@ $(function(){
 
 	$(".config a").live('click', function(e) {
 		app.showConfig();
+		e.preventDefault();
+	});
+	$("#config #submit").live("click", function(e) {
+		$("#config form").submit();		
 		e.preventDefault();
 	});
 
